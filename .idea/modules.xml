@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/facade.iml" filepath="$PROJECT_DIR$/.idea/modules/facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/facade-build.iml" filepath="$PROJECT_DIR$/.idea/modules/facade-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalajs-screeps.iml" filepath="$PROJECT_DIR$/.idea/modules/scalajs-screeps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalajs-screeps-build.iml" filepath="$PROJECT_DIR$/.idea/modules/scalajs-screeps-build.iml" />
+    </modules>
+  </component>
+</project>
