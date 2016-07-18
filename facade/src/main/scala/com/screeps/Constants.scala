@@ -90,3 +90,16 @@ object FindType extends Enumeration {
   val Minerals                 = Value(116, "MINERALS")
   val Nukes                    = Value(117, "NUKES")
 }
+
+object LookType extends Enumeration {
+  val Creeps            = Value("creep")
+  val Energy            = Value("energy")
+  val Resources         = Value("resource")
+  val Sources           = Value("source")
+  val Minerals          = Value("mineral")
+  val Structures        = Value("structure")
+  val Flags             = Value("flag")
+  val ConstructionSites = Value("constructionSite")
+  val Nukes             = Value("nuke")
+  val Terrain           = Value("terrain")
+}
