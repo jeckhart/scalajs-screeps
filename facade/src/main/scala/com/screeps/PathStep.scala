@@ -3,7 +3,7 @@ package com.screeps
 import scala.scalajs.js
 
 @js.native
-trait PathStep {
+trait PathStep extends js.Object {
   val x: Int = js.native
   val y: Int = js.native
   val dx: Int = js.native

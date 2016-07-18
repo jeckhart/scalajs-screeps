@@ -3,11 +3,12 @@ package com.screeps
 import scala.scalajs.js
 
 @js.native
-trait OwnedStructure extends Structure {
+trait Owner extends js.Object {
+  val username: String = js.native
+}
 
-  @js.native trait Owner {
-    val username: String = js.native
-  }
+@js.native
+trait OwnedStructure extends Structure {
 
   /** Whether this is your own structure. */
   val my: Boolean = js.native

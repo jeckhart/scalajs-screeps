@@ -3,7 +3,7 @@ package com.screeps
 import scala.scalajs.js
 
 @js.native
-object Room {
+object Room extends js.Object {
   /**
     * Serialize a path array into a short string representation, which is suitable to store in memory.
     * @param path A path array retrieved from Room.findPath
@@ -32,7 +32,7 @@ object Room {
   * contains its linked Room instance in the room property.
   */
 @js.native
-trait Room {
+trait Room extends js.Object {
 
   /** The Controller structure of this room, if present, otherwise undefined. */
   val controller: StructureController = js.native

@@ -9,7 +9,7 @@ import scala.scalajs.js
   * using the constructor.
   */
 @js.native
-trait RoomPosition {
+trait RoomPosition extends js.Object {
   /** The name of the room. */
   val roomName: String = js.native
   /** X position in the room */
@@ -91,6 +91,34 @@ trait RoomPosition {
   // TODO: Flesh out the opts type
   def findClosestByPath(findType: FindType.Value, opts: js.Object = ???): js.Object = js.native
 
+  /**
+    * Find an object with the shortest path from the given position. Uses
+    * <a href="http://en.wikipedia.org/wiki/A*_search_algorithm">A* search algorithm</a> and
+    * <a href="http://en.wikipedia.org/wiki/Dijkstra">Dijkstra's algorithm</a>.
+    * @param objects An array of room's objects or RoomPosition objects that the search should be executed against.
+    * @return The closest object if found, null otherwise
+    * @note CPU Cost: HIGH
+    * @example {{{var target = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
+    *         creep.moveTo(target);}}}
+    *         {{{var target = creep.pos.findClosestByPath(FIND_MY_SPAWNS, {maxOps: 500});
+    *         creep.moveTo(target);}}}
+    *         {{{var target = creep.pos.findClosestByPath(FIND_HOSTILE_CREEPS, {
+    *           filter: function(object) {
+    *             return object.getActiveBodyparts(ATTACK) == 0;
+    *           }
+    *         });}}}
+    *         {{{var target = creep.pos.findClosestByPath(FIND_HOSTILE_CREEPS, {
+    *           filter: { owner: { username: 'Invader' } }
+    *         });}}}
+    *         {{{var targets = [
+    *           Game.creeps.John,
+    *           Game.creeps.Mike,
+    *           room.getPositionAt(10,10)
+    *         ];
+    *         var closest = creep.pos.findClosestByPath(targets);}}}
+    */
+  // TODO: Flesh out the opts type
+  def findClosestByPath(objects: js.Array[js.Object]): js.Object = js.native
 
   /**
     * Find an object with the shortest path from the given position. Uses
@@ -138,7 +166,7 @@ trait RoomPosition {
     *         var closest = creep.pos.findClosestByPath(targets);}}}
     */
   // TODO: Flesh out the opts type
-  def findClosestByPath(objects: js.Array[js.Object], opts: js.Object = ???): js.Object = js.native
+  def findClosestByPath(objects: js.Array[js.Object], opts: js.Object): js.Object = js.native
 
   /**
     * Find an object with the shortest linear distance from the given position.
@@ -171,6 +199,31 @@ trait RoomPosition {
   /**
     * Find an object with the shortest linear distance from the given position.
     * @param objects An array of room's objects or RoomPosition objects that the search should be executed against.
+    * @return The closest object if found, null otherwise
+    * @note CPU Cost: AVERAGE
+    * @example {{{var target = creep.pos.findClosestByRange(FIND_MY_SPAWNS);
+    *         creep.moveTo(target);}}}
+    *         {{{var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
+    *           filter: function(object) {
+    *             return object.getActiveBodyparts(ATTACK) == 0;
+    *           }
+    *         });}}}
+    *         {{{var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
+    *           filter: { owner: { username: 'Invader' } }
+    *         });}}}
+    *         {{{var targets = [
+    *           Game.creeps.John,
+    *           Game.creeps.Mike,
+    *           room.getPositionAt(10,10)
+    *         ];
+    *         var closest = creep.pos.findClosestByRange(targets);}}}
+    */
+  // TODO: Flesh out the opts type
+  def findClosestByRange(objects: js.Array[js.Object]): js.Object = js.native
+
+  /**
+    * Find an object with the shortest linear distance from the given position.
+    * @param objects An array of room's objects or RoomPosition objects that the search should be executed against.
     * @param opts An object containing one of the following:
     *             filter object, function, string
     *               Only the objects which pass the filter using the Lodash.filter method will be used.
@@ -194,7 +247,7 @@ trait RoomPosition {
     *         var closest = creep.pos.findClosestByRange(targets);}}}
     */
   // TODO: Flesh out the opts type
-  def findClosestByRange(objects: js.Array[js.Object], opts: js.Object = ???): js.Object = js.native
+  def findClosestByRange(objects: js.Array[js.Object], opts: js.Object): js.Object = js.native
 
   /**
     * Find all objects in the specified linear range.
@@ -223,6 +276,26 @@ trait RoomPosition {
     * Find all objects in the specified linear range.
     * @param objects An array of room's objects or RoomPosition objects that the search should be executed against.
     * @param range The range distance
+    * @return The closest object if found, null otherwise
+    * @note CPU Cost: AVERAGE
+    * @example {{{var target = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
+    *         if(targets.length > 0) {
+    *           creep.rangedAttack(targets[0]);
+    *         } }}}
+    *         {{{var targets = [
+    *           Game.creeps.John,
+    *           Game.creeps.Mike,
+    *           room.getPositionAt(10,10)
+    *         ];
+    *         var closest = creep.pos.findInRange(targets, 3);}}}
+    */
+  // TODO: Flesh out the opts type
+  def findClosestByRange(objects: js.Array[js.Object], range: Int): js.Object = js.native
+
+  /**
+    * Find all objects in the specified linear range.
+    * @param objects An array of room's objects or RoomPosition objects that the search should be executed against.
+    * @param range The range distance
     * @param opts An object containing one of the following:
     *             filter object, function, string
     *               Only the objects which pass the filter using the Lodash.filter method will be used.
@@ -240,7 +313,7 @@ trait RoomPosition {
     *         var closest = creep.pos.findInRange(targets, 3);}}}
     */
   // TODO: Flesh out the opts type
-  def findClosestByRange(objects: js.Array[js.Object], range: Int, opts: js.Object = ???): js.Object = js.native
+  def findClosestByRange(objects: js.Array[js.Object], range: Int, opts: js.Object): js.Object = js.native
 
   /**
     * Find an optimal path to the specified position using
@@ -269,6 +342,16 @@ trait RoomPosition {
     * <a href="http://en.wikipedia.org/wiki/A*_search_algorithm">A* search algorithm</a>. This method is a shorthand
     * for Room.findPath. If the target is in another room, then the corresponding exit will be used as a target.
     * @param target Can be a RoomPosition object or any object containing RoomPosition.
+    * @return An array with path steps
+    * @note CPU Cost HIGH
+    */
+  def findPathTo(target: RoomPosition): js.Array[PathStep] = js.native
+
+  /**
+    * Find an optimal path to the specified position using
+    * <a href="http://en.wikipedia.org/wiki/A*_search_algorithm">A* search algorithm</a>. This method is a shorthand
+    * for Room.findPath. If the target is in another room, then the corresponding exit will be used as a target.
+    * @param target Can be a RoomPosition object or any object containing RoomPosition.
     * @param opts An object containing additonal pathfinding flags:
     *             ignoreCreeps boolean - Treat squares with creeps as walkable. Can be useful with too many moving creeps around or in some other cases. The default value is false.
     *             ignoreDestructibleStructures boolean - Treat squares with destructible structures (constructed walls, ramparts, spawns, extensions) as walkable. Use this flag when you need to move through a territory blocked by hostile structures. If a creep with an ATTACK body part steps on such a square, it automatically attacks the structure. The default value is false.
@@ -283,7 +366,7 @@ trait RoomPosition {
     * @return An array with path steps
     * @note CPU Cost HIGH
     */
-  def findPathTo(target: RoomPosition, opts: js.Object = ???): js.Array[PathStep] = js.native
+  def findPathTo(target: RoomPosition, opts: js.Object): js.Array[PathStep] = js.native
 
   /**
     * Get linear direction to the specified position.

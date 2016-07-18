@@ -2,6 +2,14 @@ package com.screeps
 
 import scala.scalajs.js
 
+@js.native
+trait ControllerReservation extends js.Object {
+  /** The name of a player who reserved this controller. */
+  val username: String = js.native
+  /** The amount of game ticks when the reservation will end. */
+  val ticksToEnd: Int = js.native
+}
+
 /**
   * Claim this structure to take control over the room.
   * The controller structure cannot be damaged or destroyed.
@@ -9,13 +17,6 @@ import scala.scalajs.js
   */
 @js.native
 trait StructureController extends OwnedStructure {
-
-  @js.native trait ControllerReservation {
-    /** The name of a player who reserved this controller. */
-    val username: String = js.native
-    /** The amount of game ticks when the reservation will end. */
-    val ticksToEnd: Int = js.native
-  }
 
   /** Current controller level, from 0 to 8. */
   val level: Short = js.native

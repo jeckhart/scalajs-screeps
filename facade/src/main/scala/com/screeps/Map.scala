@@ -2,14 +2,27 @@ package com.screeps
 
 import scala.scalajs.js
 
-sealed trait ExitDirection
+
+@js.native
+trait RouteOptions extends js.Object {
+  /**
+    * This can be used to calculate the cost of entering that room.
+    * You can use this to do things like prioritize your own rooms, or avoid some rooms.
+    * You can return a floating point cost or Infinity to block the room.
+    *
+    * @param roomName the room we are considering on the route
+    * @param fromRoomName the room from which we are leaving on the route
+    * @return a floating point cost or Infinity to block the room.
+    */
+  def routeCallback(roomName: String, fromRoomName: String): Float
+}
 
 
 /** An object representing the world map. Use it to navigate between rooms.
   * The object is accessible via Game.map property.
   */
 @js.native
-trait Map {
+trait Map extends js.Object {
 
   /**
     * List all exits available from the room with the given name.
@@ -24,21 +37,6 @@ trait Map {
     * @note CPU Cost: LOW
     */
   def describeExits(roomName: String): js.Object = js.native
-
-  @js.native
-  trait RouteOptions {
-    /**
-      * This can be used to calculate the cost of entering that room.
-      * You can use this to do things like prioritize your own rooms, or avoid some rooms.
-      * You can return a floating point cost or Infinity to block the room.
-      *
-      * @param roomName the room we are considering on the route
-      * @param fromRoomName the room from which we are leaving on the route
-      * @return a floating point cost or Infinity to block the room.
-      */
-    def routeCallback(roomName: String, fromRoomName: String): Float
-  }
-
 
   /**
     * Find the exit direction from the given room en route to another room.
