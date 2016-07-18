@@ -103,3 +103,55 @@ object LookType extends Enumeration {
   val Nukes             = Value("nuke")
   val Terrain           = Value("terrain")
 }
+
+object ResourceType extends Enumeration {
+  val Energy = Value("energy")
+  val Power = Value("power")
+
+  val Hydrogen = Value("H")
+  val Oxygen = Value("O")
+  val Utrium = Value("U")
+  val Lemergium = Value("L")
+  val Keanium = Value("K")
+  val Zynthium = Value("Z")
+  val Catalyst = Value("X")
+  val Ghodium = Value("G")
+
+  val Hydroxie = Value("OH")
+  val ZynthiumKeanite = Value("ZK")
+  val UtriumLemergite = Value("UL")
+
+  val UtriumHydride = Value("UH")
+  val UtriumOxide = Value("UO")
+  val KeaniumHydride = Value("KH")
+  val KeaniumOxide = Value("KO")
+  val LemergiumHydrive = Value("LH")
+  val LemergiumOxide = Value("LO")
+  val ZynthiumHydride = Value("ZH")
+  val ZynthiumOxide = Value("ZO")
+  val GhodiumHydride = Value("GH")
+  val GhodiumOxide = Value("GO")
+
+  val UtriumAcide = Value("UH2O")
+  val UtriumAlkalide = Value("UHO2")
+  val KeaniumAcid = Value("KH2O")
+  val KeaniumAlkalide = Value("KHO2")
+  val LemergiumAcid = Value("LH2O")
+  val LemergiumAlkalide = Value("LHO2")
+  val ZynthiumAcid = Value("ZH2O")
+  val ZynthiumAlkalide = Value("ZHO2")
+  val GhodiumAcid = Value("GH2O")
+  val GhodiumAlkalide = Value("GHO2")
+
+  val CatalyzedUtriumAcid = Value("XUH2O")
+  val CatalyzedUtriumAlkalide = Value("XUHO2")
+  val CatalyzedKeaniumAcid = Value("XKH2O")
+  val CatalyzedKeaniumAlkalide = Value("XKHO2")
+  val CatalyzedLemergiumAcid = Value("XLH2O")
+  val CatalyzedLemergiumAlkalide = Value("XLHO2")
+  val CatalyzedZynthiumAcide = Value("XZH2O")
+  val CatalyzedZynthiumAlkalide = Value("XZHO2")
+  val CatalyzedGhodiumAcid = Value("XGH2O")
+  val CatalyzedGhodiumAlkalide = Value("XGHO2")
+
+}
