@@ -26,5 +26,36 @@ def BaseProject(name: String, path: String): Project =
     )
     .enablePlugins(ScalaJSPlugin)
 
-lazy val facade = BaseProject("facade", "facade").settings( name := "scalajs-screeps")
+lazy val facade = BaseProject("facade", "facade").settings(name := "scalajs-screeps")
 
+lazy val example = BaseProject("example", "example").dependsOn(facade).settings(
+  name := "scalajs-screeps-example",
+  scalaJSOutputWrapper := (
+    """
+      |var globalHelper = (global || {});
+      |var myExport = {};
+      |var __ScalaJSEnv = {global: globalHelper, exportsNamespace: myExport};
+      |
+      |var updateGlobal = function () {
+      |  globalHelper.RoomPosition = RoomPosition;
+      |  globalHelper.Game = Game;
+      |  globalHelper.RawMemory = RawMemory;
+      |  globalHelper.Memory = Memory;
+      |  globalHelper.PathFinder = PathFinder;
+      |  globalHelper.c = console;
+      |  globalHelper.console
+      |};
+      |
+      |updateGlobal();
+      |
+      |""".stripMargin,
+    """module.exports = {
+      |  loop: function () {
+      |    updateGlobal();
+      |
+      |    myExport.com.screeps.Sample().loop();
+      |  }
+      |};
+      |""".stripMargin
+    )
+)
