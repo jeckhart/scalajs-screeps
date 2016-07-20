@@ -43,7 +43,6 @@ lazy val example = BaseProject("example", "example").dependsOn(facade).settings(
       |  globalHelper.Memory = Memory;
       |  globalHelper.PathFinder = PathFinder;
       |  globalHelper.c = console;
-      |  globalHelper.console
       |};
       |
       |updateGlobal();
@@ -53,7 +52,7 @@ lazy val example = BaseProject("example", "example").dependsOn(facade).settings(
       |  loop: function () {
       |    updateGlobal();
       |
-      |    myExport.com.screeps.Sample().loop();
+      |    myExport.com.screeps.example.Sample().loop();
       |  }
       |};
       |""".stripMargin
