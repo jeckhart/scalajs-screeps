@@ -2,10 +2,11 @@ package com.screeps
 
 import scala.scalajs.js
 
-trait CPU {
-  def limit: Int
-  def tickLimit: Int
-  def bucket: Int
+@js.native
+trait CPU extends js.Object {
+  def limit: Int = js.native
+  def tickLimit: Int = js.native
+  def bucket: Int = js.native
 
   /**
     * Get amount of CPU time used from the beginning of the current game tick.
@@ -34,7 +35,7 @@ trait CPU {
     * }}}
     *
     */
-  def getUsed() : Int
+  def getUsed() : Int = js.native
 }
 
 trait GlobalControlLevel {
