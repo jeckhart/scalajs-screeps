@@ -1,4 +1,4 @@
-package com.screeps
+package com.screeps.native
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName

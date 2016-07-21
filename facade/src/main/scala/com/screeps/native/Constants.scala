@@ -1,4 +1,4 @@
-package com.screeps
+package com.screeps.native
 
 
 object Direction extends Enumeration {
