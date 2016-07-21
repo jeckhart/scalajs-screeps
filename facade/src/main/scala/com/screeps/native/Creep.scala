@@ -345,7 +345,25 @@ trait Creep extends RoomObject {
     *         NoPath - No path to the target could be found.
     * @note CPU Cost: HIGH
     */
-  def moveTo(x: Int, y: Int, opts: js.Object): Int = js.native
+  def moveTo(x: Int, y: Int, opts: js.Object = ???): Int = js.native
+
+  /**
+    * Find the optimal path to the target within the same room and move to it. A shorthand to
+    * consequent calls of pos.findPathTo() and move() methods. If the target is in another room,
+    * then the corresponding exit will be used as a target. Requires the MOVE body part
+    * @param target Can be a RoomPosition object or any object containing RoomPosition.
+    *               The position doesn't have to be in the same room with the creep.
+    * @return One of the following codes:
+    *         OK - The operation has been scheduled successfully.
+    *         NotOwner - You are not the owner of this creep.
+    *         Busy - The creep is still being spawned.
+    *         Tired - The fatigue indicator of the creep is non-zero.
+    *         NoBodypart - There are no MOVE body parts in this creep’s body.
+    *         InvalidTarget - The target is not a valid creep object.
+    *         NoPath - No path to the target could be found.
+    * @note CPU Cost: HIGH
+    */
+  def moveTo(target: RoomPosition): Int = js.native
 
   /**
     * Find the optimal path to the target within the same room and move to it. A shorthand to
