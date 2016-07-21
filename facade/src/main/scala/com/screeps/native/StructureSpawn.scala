@@ -75,7 +75,7 @@ trait StructureSpawn extends OwnedStructure {
     *         RCLNotEnough - The Room Controller Level is not enough.
     * @note CPU Cost: LOW
     */
-  def canCreateCreep(body: js.Array[String], name: String = ""): Errors.Value = js.native
+  def canCreateCreep(body: js.Array[String], name: String = ""): Int = js.native
 
   /**
     * Start the creep spawning process. The required energy amount can be withdrawn
@@ -108,7 +108,7 @@ trait StructureSpawn extends OwnedStructure {
     *         NotInRange - The target creep is too far away.
     * @note CPU Cost: CONST
     */
-  def recycleCreep(target: Creep): Errors.Value = js.native
+  def recycleCreep(target: Creep): Int = js.native
 
   /**
     * Increase the remaining time to live of the target creep. The target should be at adjacent square. The spawn
@@ -126,6 +126,6 @@ trait StructureSpawn extends OwnedStructure {
     *         NotInRange - The target creep is too far away.
     * @note CPU Cost: CONST
     */
-  def renewCreep(target: Creep): Errors.Value = js.native
+  def renewCreep(target: Creep): Int = js.native
   
 }

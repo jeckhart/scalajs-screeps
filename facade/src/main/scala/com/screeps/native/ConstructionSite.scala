@@ -21,8 +21,8 @@ trait ConstructionSite extends RoomObject {
   val progressTotal: Int = js.native
 
   /** One of the STRUCTURE_* constants. */
-  val structureType: StructureType.Value = js.native
+  val structureType: String = js.native
 
   /** Remove the construction site. */
-  def remove(): Errors.Value = js.native
+  def remove(): Int = js.native
 }

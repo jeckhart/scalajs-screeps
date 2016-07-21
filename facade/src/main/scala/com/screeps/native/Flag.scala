@@ -7,7 +7,7 @@ import scala.scalajs.js
 trait Flag extends RoomObject {
 
   /** Flag primary color. One of the COLOR_* constants. */
-  val color: Color.Value = js.native
+  val color: Int = js.native
 
   /** A shorthand to Memory.flags[flag.name]. You can use it for quick access the flag's specific memory data object. */
   val memory: js.Any = js.native
@@ -19,13 +19,13 @@ trait Flag extends RoomObject {
   val name: String = js.native
 
   /** Flag secondary color. One of the COLOR_* constants. */
-  val secondaryColor: Color.Value = js.native
+  val secondaryColor: Int = js.native
 
   /**
     * Remove the flag.
     * @return OK
     */
-  def remove(): Errors.Value = js.native
+  def remove(): Int = js.native
 
   /**
     * Set new color of the flag
@@ -35,7 +35,7 @@ trait Flag extends RoomObject {
     *         OK - The operation has been scheduled successfully.
     *         InvalidArgs - The color is not a valid color constant
     */
-  def setColor(color: Color.Value, secondaryColor: Color.Value = ???): Errors.Value = js.native
+  def setColor(color: Int, secondaryColor: Int = ???): Int = js.native
 
   /**
     * Set new position of the flag.
@@ -45,7 +45,7 @@ trait Flag extends RoomObject {
     *         OK - The operation has been scheduled successfully.
     *         InvalidTarget - The target provided is invalid.
     */
-  def setPosition(x: Int, y: Int): Errors.Value = js.native
+  def setPosition(x: Int, y: Int): Int = js.native
 
   /**
     * Set new position of the flag.
@@ -54,5 +54,5 @@ trait Flag extends RoomObject {
     *         OK - The operation has been scheduled successfully.
     *         InvalidTarget - The target provided is invalid.
     */
-  def setPosition(pos: RoomPosition): Errors.Value = js.native
+  def setPosition(pos: RoomPosition): Int = js.native
 }

@@ -47,6 +47,6 @@ trait StructureController extends OwnedStructure {
     *         OK - The operation has been scheduled successfully.
     *         NotOwner - You are not the owner of this controller.
     */
-  def unclaim(): Errors.Value = js.native
+  def unclaim(): Int = js.native
 
 }

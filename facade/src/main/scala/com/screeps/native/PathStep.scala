@@ -8,5 +8,5 @@ trait PathStep extends js.Object {
   val y: Int = js.native
   val dx: Int = js.native
   val dy: Int = js.native
-  val direction: Direction.Value = js.native
+  val direction: Int = js.native
 }

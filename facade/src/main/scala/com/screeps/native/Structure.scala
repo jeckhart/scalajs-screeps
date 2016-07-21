@@ -18,10 +18,10 @@ trait Structure extends RoomObject {
   val id: String = js.native
 
   /** The type of the structure, from the [StructureType] constants */
-  val structureType: StructureType.Value = js.native
+  val structureType: String = js.native
 
   /** Destroy this structure immediately. */
-  def destroy(): Errors.Value = js.native
+  def destroy(): Int = js.native
 
   /** Check whether this structure can be used. If the room controller level is not enough, then this
     * method will return false, and the structure will be highlighted with red in the game.
@@ -37,6 +37,6 @@ trait Structure extends RoomObject {
     *         NotOwner - You are not the owner of this structure.
     *         InvalidArgs - enable argument is not a boolean value.
     */
-  def notifyWhenAttacked(enabled: Boolean): Errors.Value
+  def notifyWhenAttacked(enabled: Boolean): Int = js.native
 
 }

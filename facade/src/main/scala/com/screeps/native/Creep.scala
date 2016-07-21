@@ -9,7 +9,7 @@ trait BodyPart extends js.Object{
     * If the body part is boosted, this property specifies the mineral type which is used for boosting.
     * One of the RESOURCE_* constants. [[http://support.screeps.com/hc/en-us/articles/207891075 Learn more]]
     */
-  val boost: ResourceType.Value = js.native
+  val boost: Int = js.native
 
   /** One of the body part types constants. */
   @JSName("type")
@@ -107,7 +107,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no ATTACK body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-  def attack(target: Creep): Errors.Value = js.native
+  def attack(target: Creep): Int = js.native
 
   /**
     * Attack another creep or structure in a short-ranged attack. Requires the ATTACK body part. If the target is
@@ -124,7 +124,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no ATTACK body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-  def attack(target: Structure): Errors.Value = js.native
+  def attack(target: Structure): Int = js.native
 
   /**
     * Decreases the controller's downgrade or reservation timer for 1 tick per every 5 CLAIM body parts
@@ -140,7 +140,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are not enough CLAIM body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-  def attackController(target: Structure): Errors.Value = js.native
+  def attackController(target: Structure): Int = js.native
 
   /**
     * Build a structure at the target construction site using carried energy. Requires WORK and CARRY body parts.
@@ -158,7 +158,7 @@ trait Creep extends RoomObject {
     *         RCLNotEnough - The Room Controller Level is not enough.
     * @note CPU Cost: CONST
     */
-  def build(target: ConstructionSite): Errors.Value = js.native
+  def build(target: ConstructionSite): Int = js.native
 
   /**
     * Cancel the order given during the current game tick.
@@ -166,7 +166,7 @@ trait Creep extends RoomObject {
     * @return NotFound if the specified name could not be found.
     * @note CPU Cost: NONE
     */
-  def cancelOrder(methodName: String): Errors.Value = js.native
+  def cancelOrder(methodName: String): Int = js.native
 
   /**
     * Claims a neutral controller under your control. Requires the CLAIM body part.
@@ -184,7 +184,7 @@ trait Creep extends RoomObject {
     *         GCLNotEnough - The Global Control Level is not enough.
     * @note CPU Cost: CONST
     */
-  def claimController(target: Structure): Errors.Value = js.native
+  def claimController(target: Structure): Int = js.native
 
   /**
     * Dismantles any (even hostile) structure returning 50% of the energy spent
@@ -202,7 +202,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no WORK body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-  def dismantle(target: Structure): Errors.Value = js.native
+  def dismantle(target: Structure): Int = js.native
 
   /**
     * Build a structure at the target construction site using carried energy. Requires WORK and CARRY body parts.
@@ -216,7 +216,7 @@ trait Creep extends RoomObject {
     *         NotEnoughResources - The creep does not have the given amount of energy.
     * @note CPU Cost: CONST
     */
-  def drop(resourceType: ResourceType.Value, amount: Int = ???): Errors.Value = js.native
+  def drop(resourceType: String, amount: Int = ???): Int = js.native
 
   /**
     * Get the quantity of live body parts of the given type. Fully damaged parts do not count.
@@ -243,7 +243,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no WORK body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-  def harvest(target: Source): Errors.Value = js.native
+  def harvest(target: Source): Int = js.native
 
   /**
     * Harvest energy from the source or minerals from the mineral deposit. Requires the WORK body part.
@@ -261,7 +261,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no WORK body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-  def harvest(target: Mineral): Errors.Value = js.native
+  def harvest(target: Mineral): Int = js.native
 
   /**
     * Heal self or another creep. It will restore the target creep’s damaged body parts function and increase the
@@ -276,7 +276,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no HEAL body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-  def heal(target: Creep): Errors.Value = js.native
+  def heal(target: Creep): Int = js.native
 
   /**
     * Move the creep one square in the specified direction. Requires the MOVE body part.
@@ -287,7 +287,7 @@ trait Creep extends RoomObject {
     *         Busy - The creep is still being spawned.
     *         Tired - The fatigue indicator of the creep is non-zero.
     *         NoBodypart - There are no MOVE body parts in this creep’s body.    */
-  def move(direction: Direction.Value): Errors.Value = js.native
+  def move(direction: Int): Int = js.native
 
   /**
     * Move the creep one square in the specified direction. Requires the MOVE body part.
@@ -300,7 +300,7 @@ trait Creep extends RoomObject {
     *         InvalidArgs - path is not a valid path array
     *         Tired - The fatigue indicator of the creep is non-zero.
     *         NoBodypart - There are no MOVE body parts in this creep’s body.    */
-  def moveByPath(path: String): Errors.Value = js.native
+  def moveByPath(path: String): Int = js.native
 
   /**
     * Move the creep one square in the specified direction. Requires the MOVE body part.
@@ -313,7 +313,7 @@ trait Creep extends RoomObject {
     *         InvalidArgs - path is not a valid path array
     *         Tired - The fatigue indicator of the creep is non-zero.
     *         NoBodypart - There are no MOVE body parts in this creep’s body.    */
-  def moveByPath(path: js.Array[PathStep]): Errors.Value = js.native
+  def moveByPath(path: js.Array[PathStep]): Int = js.native
 
   /**
     * Find the optimal path to the target within the same room and move to it. A shorthand to
@@ -345,7 +345,7 @@ trait Creep extends RoomObject {
     *         NoPath - No path to the target could be found.
     * @note CPU Cost: HIGH
     */
-  def moveTo(x: Int, y: Int, opts: js.Object): Errors.Value = js.native
+  def moveTo(x: Int, y: Int, opts: js.Object): Int = js.native
 
   /**
     * Find the optimal path to the target within the same room and move to it. A shorthand to
@@ -377,7 +377,7 @@ trait Creep extends RoomObject {
     *         NoPath - No path to the target could be found.
     * @note CPU Cost: HIGH
     */
-  def moveTo(target: RoomPosition, opts: js.Object): Errors.Value = js.native
+  def moveTo(target: RoomPosition, opts: js.Object): Int = js.native
 
   /**
     * Toggle auto notification when the creep is under attack. The notification will be sent to your account email.
@@ -389,7 +389,7 @@ trait Creep extends RoomObject {
     *         InvalidArgs - path is not a valid path array
     * @note CPU Cost: CONST
     */
-  def notifyWhenAttacked(enabled: Boolean): Errors.Value = js.native
+  def notifyWhenAttacked(enabled: Boolean): Int = js.native
 
   /**
     * Pick up an item (a dropped piece of energy). Requires the CARRY body part.
@@ -405,7 +405,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no CARRY body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-  def pickup(target: Resource): Errors.Value = js.native
+  def pickup(target: Resource): Int = js.native
 
   /**
     * A ranged attack against another creep or structure. Requires the RANGED_ATTACK body part. If the target is
@@ -420,7 +420,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no RANGED_ATTACK body parts in this creep’s body.
     * @note CPU Cost: HIGH
     */
-  def rangedAttack(target: Creep): Errors.Value = js.native
+  def rangedAttack(target: Creep): Int = js.native
 
   /**
     * A ranged attack against another creep or structure. Requires the RANGED_ATTACK body part. If the target is
@@ -435,7 +435,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no RANGED_ATTACK body parts in this creep’s body.
     * @note CPU Cost: HIGH
     */
-  def rangedAttack(target: Structure): Errors.Value = js.native
+  def rangedAttack(target: Structure): Int = js.native
 
   /**
     * Heal another creep at a distance. It will restore the target creep’s damaged body parts function and increase
@@ -450,7 +450,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no HEAL body parts in this creep’s body.
     * @note CPU Cost: HIGH
     */
-  def rangedHeal(target: Creep): Errors.Value = js.native
+  def rangedHeal(target: Creep): Int = js.native
 
   /**
     * A ranged attack against all hostile creeps or structures within 3 squares range. Requires the RANGED_ATTACK
@@ -462,7 +462,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no RANGED_ATTACK body parts in this creep’s body.
     * @note CPU Cost: HIGH
     */
-  def rangedMassAttack(): Errors.Value = js.native
+  def rangedMassAttack(): Int = js.native
 
   /**
     * Repair a damaged structure using carried energy. Requires the WORK and CARRY body parts.
@@ -478,7 +478,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no WORK body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-  def repair(target: Structure): Errors.Value = js.native
+  def repair(target: Structure): Int = js.native
 
   /**
     * Temporarily block a neutral controller from claiming by other players. Each tick, this command increases
@@ -495,7 +495,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no CLAIM body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-    def reserveController(target: Structure): Errors.Value = js.native
+    def reserveController(target: Structure): Int = js.native
 
   /**
     * Display a visual speech balloon above the creep with the specified message. The message will disappear
@@ -507,7 +507,7 @@ trait Creep extends RoomObject {
     *         Busy - The creep is still being spawned.
     * @note CPU Cost: CONST
     */
-    def say(message: String): Errors.Value = js.native
+    def say(message: String): Int = js.native
 
   /**
     * Kill the creep immediately.
@@ -517,7 +517,7 @@ trait Creep extends RoomObject {
     *         Busy - The creep is still being spawned.
     * @note CPU Cost: CONST
     */
-  def suicide(): Errors.Value = js.native
+  def suicide(): Int = js.native
 
   /**
     * Transfer resource from the creep to another object. The target has to be at adjacent square to the creep.
@@ -535,7 +535,7 @@ trait Creep extends RoomObject {
     *         InvalidArgs - The resources amount is incorrect.
     * @note CPU Cost: CONST
     */
-  def transfer(target: Creep, resourceType: ResourceType.Value, amount: Int = ???): Errors.Value = js.native
+  def transfer(target: Creep, resourceType: String, amount: Int = ???): Int = js.native
 
   /**
     * Transfer resource from the creep to another object. The target has to be at adjacent square to the creep.
@@ -552,7 +552,7 @@ trait Creep extends RoomObject {
     *         InvalidArgs - The resources amount is incorrect.
     * @note CPU Cost: CONST
     */
-  def transfer(target: Structure, resourceType: ResourceType.Value): Errors.Value = js.native
+  def transfer(target: Structure, resourceType: String): Int = js.native
 
   /**
     * Transfer resource from the creep to another object. The target has to be at adjacent square to the creep.
@@ -570,7 +570,7 @@ trait Creep extends RoomObject {
     *         InvalidArgs - The resources amount is incorrect.
     * @note CPU Cost: CONST
     */
-  def transfer(target: Structure, resourceType: ResourceType.Value, amount: Int): Errors.Value = js.native
+  def transfer(target: Structure, resourceType: String, amount: Int): Int = js.native
 
   /**
     * Upgrade your controller to the next level using carried energy. Upgrading controllers raises your Global Control
@@ -591,7 +591,7 @@ trait Creep extends RoomObject {
     *         NoBodypart - There are no WORK body parts in this creep’s body.
     * @note CPU Cost: CONST
     */
-  def upgradeController(target: Structure): Errors.Value = js.native
+  def upgradeController(target: Structure): Int = js.native
 
   /**
     * Withdraw resources from a structure. The target has to be at adjacent square to the creep. Multiple creeps can
@@ -611,6 +611,6 @@ trait Creep extends RoomObject {
     *         InvalidArgs - The resource amount or type is incorrect
     * @note CPU Cost: CONST
     */
-  def withdraw(target: Structure, resourceType: ResourceType.Value, amount: Int): Errors.Value = js.native
+  def withdraw(target: Structure, resourceType: String, amount: Int): Int = js.native
 
 }

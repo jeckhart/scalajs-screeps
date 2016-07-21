@@ -27,7 +27,7 @@ trait StructureTerminal extends OwnedStructure {
   val store: js.Object = js.native
 
   /** The total amount of resources the storage can contain. */
-  val storeCapacity: Integer = js.native
+  val storeCapacity: Int = js.native
 
   /**
     * Sends resource to a Terminal in another room with the specified name.
@@ -42,11 +42,11 @@ trait StructureTerminal extends OwnedStructure {
     *         NotEnoughResources - The structure does not have the required amount of resources.
     *         InvalidArgs - The arguments provided are incorrect.
     */
-  def send(resourceType: ResourceType.Value,
-           amount: Integer,
+  def send(resourceType: String,
+           amount: Int,
            destination: String,
            description: String = ""
-          ): Errors.Value = js.native
+          ): Int = js.native
 
 
 }

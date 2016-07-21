@@ -38,10 +38,10 @@ trait Room extends js.Object {
   val controller: StructureController = js.native
 
   /** Total amount of energy available in all spawns and extensions in the room. */
-  val energyAvailable: Integer = js.native
+  val energyAvailable: Int = js.native
 
   /** Total amount of energyCapacity of all spawns and extensions in the room. */
-  val energyCapacityAvailable: Integer = js.native
+  val energyCapacityAvailable: Int = js.native
 
   /** A shorthand to Memory.rooms[room.name]. You can use it for quick access the room’s specific memory data object. */
   val memory: js.Any = js.native
@@ -89,7 +89,7 @@ trait Room extends js.Object {
     *         InvalidArgs - The location or the color constant is incorrect.
     * @note CPU Cost: CONST
     */
-  def createFlag(x: Int, y: Int, name: String = "", color: Color.Value = Color.White, secondaryColor: Color.Value = Color.White): js.Any = js.native
+  def createFlag(x: Int, y: Int, name: String = "", color: Int = Color.White.id, secondaryColor: Int = Color.White.id): js.Any = js.native
 
   /**
     * Find all objects of the specified type in the room.
@@ -101,7 +101,7 @@ trait Room extends js.Object {
     * @note CPU Cost: AVERAGE
     */
   // TODO: Flesh out the opts type
-  def find(findType: FindType.Value, opts: js.Object = ???): js.Array[js.Object] = js.native
+  def find(findType: Int, opts: js.Object = ???): js.Array[js.Object] = js.native
 
   /**
     * Find the exit direction en route to another room.
@@ -113,7 +113,7 @@ trait Room extends js.Object {
     *           InvalidArgs - The location is incorrect
     * @note CPU Cost: HIGH
     */
-  def findExitTo(room: String): Direction.Value = js.native
+  def findExitTo(room: String): Int = js.native
 
   /**
     * Find an optimal path inside the room between fromPos and toPos using
@@ -223,7 +223,7 @@ trait Room extends js.Object {
     * @return An array of objects of the given type at the specified position if found.
     * @note CPU Cost: LOW
     */
-  def lookForAt(lookType: LookType.Value, x: Int, y: Int): js.Array[js.Object] = js.native
+  def lookForAt(lookType: String, x: Int, y: Int): js.Array[js.Object] = js.native
 
   /**
     * Get the list of objects at the specified room position.
@@ -232,7 +232,7 @@ trait Room extends js.Object {
     * @return An array of objects of the given type at the specified position if found.
     * @note CPU Cost: LOW
     */
-  def lookForAt(lookType: LookType.Value, target: RoomPosition): js.Array[js.Object] = js.native
+  def lookForAt(lookType: String, target: RoomPosition): js.Array[js.Object] = js.native
 
   /**
     * Get the list of objects at the specified room area.
@@ -265,7 +265,7 @@ trait Room extends js.Object {
     *         ]}}}
     * @note CPU Cost: LOW
     */
-  def lookForAtArea(lookType: LookType.Value, top: Int, left: Int, bottom: Int, right: Int, asArray: Boolean = false): js.Any = js.native
+  def lookForAtArea(lookType: String, top: Int, left: Int, bottom: Int, right: Int, asArray: Boolean = false): js.Any = js.native
 
 }
 

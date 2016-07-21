@@ -22,6 +22,6 @@ trait StructureStorage extends OwnedStructure {
   val store: js.Object = js.native
 
   /** The total amount of resources the storage can contain. */
-  val storeCapacity: Integer = js.native
+  val storeCapacity: Int = js.native
 
 }

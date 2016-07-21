@@ -17,7 +17,7 @@ trait Mineral extends RoomObject {
   val mineralAmount: Int = js.native
 
   /** The resource type, one of the RESOURCE_* constants. */
-  val mineralType: ResourceType.Value = js.native
+  val mineralType: String = js.native
 
   /** A unique object identificator. You can use Game.getObjectById method to retrieve an object instance by its id. */
   val id: String = js.native

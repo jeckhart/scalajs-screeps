@@ -41,7 +41,7 @@ trait RoomPosition extends js.Object {
     *         InvalidArgs - The location or the color constant is incorrect.
     * @note CPU Cost: CONST
     */
-  def createFlag(name: String = "", color: Color.Value = Color.White, secondaryColor: Color.Value = Color.White): js.Any = js.native
+  def createFlag(name: String = "", color: Int = Color.White.id, secondaryColor: Int = Color.White.id): js.Any = js.native
 
   /**
     * Find an object with the shortest path from the given position. Uses
@@ -89,7 +89,7 @@ trait RoomPosition extends js.Object {
     *         var closest = creep.pos.findClosestByPath(targets);}}}
     */
   // TODO: Flesh out the opts type
-  def findClosestByPath(findType: FindType.Value, opts: js.Object = ???): js.Object = js.native
+  def findClosestByPath(findType: Int, opts: js.Object = ???): js.Object = js.native
 
   /**
     * Find an object with the shortest path from the given position. Uses
@@ -194,7 +194,7 @@ trait RoomPosition extends js.Object {
     *         var closest = creep.pos.findClosestByRange(targets);}}}
     */
   // TODO: Flesh out the opts type
-  def findClosestByRange(findType: FindType.Value, opts: js.Object = ???): js.Object = js.native
+  def findClosestByRange(findType: Int, opts: js.Object = ???): js.Object = js.native
 
   /**
     * Find an object with the shortest linear distance from the given position.
@@ -270,7 +270,7 @@ trait RoomPosition extends js.Object {
     *         var closest = creep.pos.findInRange(targets, 3);}}}
     */
   // TODO: Flesh out the opts type
-  def findInRange(findType: FindType.Value, range: Int, opts: js.Object = ???): js.Object = js.native
+  def findInRange(findType: Int, range: Int, opts: js.Object = ???): js.Object = js.native
 
   /**
     * Find all objects in the specified linear range.
@@ -374,14 +374,14 @@ trait RoomPosition extends js.Object {
     * @param y Y position in the room.
     * @return the direction to the point specified
     */
-  def getDirectionTo(x:Int, y:Int): Direction.Value = js.native
+  def getDirectionTo(x:Int, y:Int): Int = js.native
 
   /**
     * Get linear direction to the specified position.
     * @param target Can be a RoomPosition object or any object containing RoomPosition.
     * @return the direction to the point specified
     */
-  def getDirectionTo(target: RoomPosition): Direction.Value = js.native
+  def getDirectionTo(target: RoomPosition): Int = js.native
 
   /**
     * Get linear range to the specified position.
@@ -461,5 +461,5 @@ trait RoomPosition extends js.Object {
     * Get the list of objects at the specified room position
     * @return An array of objects of the given type at the specified position if found.
     */
-  def lookFor(lookType: LookType.Value): js.Array[js.Object] = js.native
+  def lookFor(lookType: String): js.Array[js.Object] = js.native
 }

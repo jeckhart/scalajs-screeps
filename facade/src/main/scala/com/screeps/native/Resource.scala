@@ -11,6 +11,6 @@ trait Resource extends RoomObject {
   val id: String
 
   /** One of the RESOURCE_* constants. */
-  val resourceType: ResourceType.Value
+  val resourceType: String
 
 }
