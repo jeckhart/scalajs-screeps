@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="facade-build" external.linked.project.path="$MODULE_DIR$/../../facade/project" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" sbt.imports="sbt._, Keys._, dsl._, _root_.org.sbtidea.SbtIdeaPlugin._, _root_.com.typesafe.sbteclipse.plugin.EclipsePlugin.autoImport._, _root_.org.ensime.EnsimePlugin.autoImport._, _root_.org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.com.typesafe.sbteclipse.plugin.EclipsePlugin, _root_.org.ensime.EnsimePlugin, _root_.org.scalajs.sbtplugin.ScalaJSJUnitPlugin, _root_.org.scalajs.sbtplugin.ScalaJSPlugin, $3219b580804b8f038893.example, $3219b580804b8f038893.facade" sbt.resolvers="https://repo1.maven.org/maven2/|maven|public, /Users/jeckhart/.ivy2/cache|ivy|Local cache" type="SBT_MODULE" version="4">
+<module external.linked.project.id="example-build" external.linked.project.path="$MODULE_DIR$/../../example/project" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" sbt.imports="sbt._, Keys._, dsl._, _root_.org.sbtidea.SbtIdeaPlugin._, _root_.com.typesafe.sbteclipse.plugin.EclipsePlugin.autoImport._, _root_.org.ensime.EnsimePlugin.autoImport._, _root_.org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.com.typesafe.sbteclipse.plugin.EclipsePlugin, _root_.org.ensime.EnsimePlugin, _root_.org.scalajs.sbtplugin.ScalaJSJUnitPlugin, _root_.org.scalajs.sbtplugin.ScalaJSPlugin, $3219b580804b8f038893.example, $3219b580804b8f038893.facade" sbt.resolvers="https://repo1.maven.org/maven2/|maven|public, /Users/jeckhart/.ivy2/cache|ivy|Local cache" type="SBT_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/../../facade/project/target/idea-classes" />
-    <output-test url="file://$MODULE_DIR$/../../facade/project/target/idea-test-classes" />
+    <output url="file://$MODULE_DIR$/../../example/project/target/idea-classes" />
+    <output-test url="file://$MODULE_DIR$/../../example/project/target/idea-test-classes" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../facade/project">
-      <sourceFolder url="file://$MODULE_DIR$/../../facade/project" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/../../facade/project/project/target" />
-      <excludeFolder url="file://$MODULE_DIR$/../../facade/project/target" />
+    <content url="file://$MODULE_DIR$/../../example/project">
+      <sourceFolder url="file://$MODULE_DIR$/../../example/project" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../example/project/project/target" />
+      <excludeFolder url="file://$MODULE_DIR$/../../example/project/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
