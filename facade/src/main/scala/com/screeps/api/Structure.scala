@@ -37,6 +37,6 @@ trait Structure extends RoomObject {
     *         NotOwner - You are not the owner of this structure.
     *         InvalidArgs - enable argument is not a boolean value.
     */
-  def notifyWhenAttacked(enabled: Boolean): Errors.Value
+  def notifyWhenAttacked(enabled: Boolean): Errors.Value = js.native
 
 }
