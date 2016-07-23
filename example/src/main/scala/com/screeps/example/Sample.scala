@@ -26,6 +26,8 @@ object Sample {
         case unknown     => g.c.log("unknown role: " + unknown)
       }
     })
+
+    Game.structures.values.filter(_.structureType == StructureType.Tower.toString).map(_.asInstanceOf[StructureTower]).foreach(tower)
   }
 
   def numOfHarvesters(creeps: Iterable[Creep]) =
@@ -100,5 +102,19 @@ object Sample {
     }
 
   }
+
+  /**
+    * Sadly StructureController has hits and hitsMax, but they are undefined, so we need to resort to trickery
+    */
+  val healingOpts = new js.Object {
+    def filter(s: js.Dynamic): Boolean =
+      !js.isUndefined(s.hits) && !js.isUndefined(s.hitsMax) && (s.hits.asInstanceOf[Int] < s.hitsMax.asInstanceOf[Int])
+  }
+
+  def tower(tower: StructureTower): Unit = {
+    Option(tower.pos.findClosestByRange(FindType.HostileCreeps.id)).asInstanceOf[Option[Creep]].foreach(tower.attack)
+    Option(tower.pos.findClosestByRange(FindType.Structures.id,healingOpts)).asInstanceOf[Option[Structure]].foreach(tower.repair)
+  }
+
 }
 
