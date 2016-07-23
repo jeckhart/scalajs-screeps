@@ -34,13 +34,7 @@ trait Spawning extends js.Object {
   * Energy auto-regeneration	1 energy unit per tick while energy available in the room is less than 300
   */
 @js.native
-trait StructureSpawn extends OwnedStructure {
-
-  /** The amount of energy containing in the spawn. */
-  val energy: Int = js.native
-
-  /** The total amount of energy the spawn can contain. */
-  val energyCapacity: Int = js.native
+trait StructureSpawn extends OwnedStructureWithEnergy {
 
   /** A shorthand to Memory.spawns[spawn.name]. You can use it for quick access the spawn’s specific memory data object.
     * [[http://support.screeps.com/hc/en-us/articles/203016642-Working-with-memory Learn more about memory]]

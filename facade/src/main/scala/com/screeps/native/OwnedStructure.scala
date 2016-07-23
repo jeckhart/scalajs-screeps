@@ -18,3 +18,14 @@ trait OwnedStructure extends Structure {
     */
   val owner: Owner = js.native
 }
+
+@js.native
+trait OwnedStructureWithEnergy extends OwnedStructure {
+
+  /** The amount of energy containing in the spawn. */
+  val energy: Int = js.native
+
+  /** The total amount of energy the spawn can contain. */
+  val energyCapacity: Int = js.native
+
+}
