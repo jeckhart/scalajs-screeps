@@ -72,7 +72,7 @@ trait Creep extends RoomObject {
   /**
     * A shorthand to Memory.creeps[creep.name]. You can use it for quick access the creep’s specific memory data object.
     */
-  val memory: js.Any = js.native
+  val memory: js.Dynamic = js.native
 
   /** Whether it is your creep or foe. */
   val my: Boolean = js.native
