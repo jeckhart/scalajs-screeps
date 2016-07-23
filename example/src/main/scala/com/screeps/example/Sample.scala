@@ -45,9 +45,9 @@ object Sample {
       val opts = new js.Object {
         def filter(structure:Structure): Boolean = {
           return (structure.structureType == StructureType.Extension.toString ||
-            structure.structureType == StructureType.Spawn.toString ) && (
-            structure.asInstanceOf[js.Dynamic].energy.asInstanceOf[Int] <
-              structure.asInstanceOf[js.Dynamic].energyCapacity.asInstanceOf[Int])
+            structure.structureType == StructureType.Spawn.toString ||
+            structure.structureType == StructureType.Tower.toString ) && (
+            structure.asInstanceOf[OwnedStructureWithEnergy].energy < structure.asInstanceOf[OwnedStructureWithEnergy].energyCapacity)
         }
       }.asInstanceOf[js.Object]
       val targets = creep.room.find(FindType.Structures.id, opts).asInstanceOf[js.Array[Structure]]
