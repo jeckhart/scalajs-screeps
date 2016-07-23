@@ -10,6 +10,14 @@ import scala.scalajs.js.Dynamic.{global => g}
 object Sample {
   @JSExport
   def loop() = {
+    val num = numOfHarvesters(Game.creeps.values)
+    g.c.log("Harvesters: " + num)
+    if (num < 2) {
+      val newName = Game.spawns("Spawn1").createCreep(js.Array("work", "carry", "move"), "", new js.Object{ val role = "harvester"})
+      g.c.log("Spawning new harvester: " + newName)
+    }
+    cleanMemory()
+
     Game.creeps.values.map( creep => {
       creep.memory.role.asInstanceOf[String] match {
         case "harvester" => harvester(creep)
@@ -18,6 +26,16 @@ object Sample {
         case unknown     => g.c.log("unknown role: " + unknown)
       }
     })
+  }
+
+  def numOfHarvesters(creeps: Iterable[Creep]) =
+    creeps.filter(_.memory.role.asInstanceOf[String] == "harvester").size
+
+  def cleanMemory() = {
+    Memory.creeps.keys.filterNot(Game.creeps.contains).foreach { name: String =>
+      g.c.log("Recycling memories of " + name)
+      Memory.creeps.delete(name)
+    }
   }
 
   def harvester(creep: Creep) = {
